@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASH — The Neighborhood Celebration Network</title>
+  <meta name="description" content="DASH connects local businesses with neighbors celebrating birthdays and anniversaries within 5 miles. No rev share. No contract. 90 days free." />
+  <meta property="og:title" content="DASH — Get Local Celebrators In Your Door" />
+  <meta property="og:description" content="Anti-Groupon hyperlocal celebration platform. 90 days free. $11.99/mo. Cancel anytime." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dash.ai-loren.com" />
+  <link rel="canonical" href="https://dash.ai-loren.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DASH",
+    "url": "https://dashday.co",
+    "logo": "https://dash.ai-loren.com/logo.png",
+    "description": "DASH is a hyperlocal celebration platform connecting people celebrating birthdays and anniversaries with small experiential businesses within 5 miles.",
+    "sameAs": ["https://www.facebook.com/DashDayapp/", "https://www.linkedin.com/company/dash-celebrate"]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-2: #111114;
+      --bg-3: #16161a;
+      --ink: #f4f4f3;
+      --ink-2: #c8c8c5;
+      --ink-3: #7a7a78;
+      --accent: #ff5e5b;
+      --accent-glow: rgba(255,94,91,0.15);
+      --gold: #d4b675;
+      --line: rgba(255,255,255,0.08);
+      --line-2: rgba(255,255,255,0.04);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --max: 1180px;
+      --serif: 'Fraunces', 'Times New Roman', serif;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ───── HEADER ───── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 50;
+      background: rgba(10,10,11,0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-mark {
+      width: 32px; height: 32px;
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .nav-links {
+      display: flex; gap: 36px;
+      font-size: 14px;
+      color: var(--ink-2);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
+    @media (max-width: 720px) { .nav-links { display: none; } }
+
+    /* ───── HERO ───── */
+    .hero {
+      padding: 160px 28px 80px;
+      max-width: var(--max);
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 100px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink-2);
+      margin-bottom: 28px;
+      letter-spacing: 0.02em;
+    }
+    .eyebrow .pulse {
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 var(--accent);
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,94,91,0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(255,94,91,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,94,91,0); }
+    }
+    h1.headline {
+      font-family: var(--serif);
+      font-weight: 800;
+      font-size: clamp(44px, 7vw, 92px);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      margin-bottom: 28px;
+      max-width: 900px;
+    }
+    h1.headline em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .subhead {
+      font-size: clamp(17px, 1.5vw, 21px);
+      color: var(--ink-2);
+      max-width: 640px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .hero-cta-row {
+      display: flex; gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 18px 36px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 32px rgba(255,94,91,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(255,94,91,0.4); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 18px 28px;
+      border-radius: 100px;
+      font-weight: 500;
+      font-size: 15px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover { border-color: var(--ink-2); background: var(--bg-2); }
+    .hero-meta {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--ink-3);
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+    .hero-meta span::before { content: '✓ '; color: var(--accent); }
+
+    /* ───── VSL ───── */
+    .vsl {
+      max-width: var(--max);
+      margin: 60px auto;
+      padding: 0 28px;
+    }
+    .vsl-frame {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--bg-2), var(--bg-3));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .vsl-frame:hover { transform: scale(1.005); }
+    .play-button {
+      width: 88px; height: 88px;
+      background: var(--ink);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+    .vsl-frame:hover .play-button { transform: scale(1.08); }
+    .play-button::before {
+      content: '';
+      width: 0; height: 0;
+      border-left: 22px solid var(--bg);
+      border-top: 14px solid transparent;
+      border-bottom: 14px solid transparent;
+      margin-left: 5px;
+    }
+    .vsl-caption {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      font-size: 14px;
+      color: var(--ink-2);
+      font-weight: 500;
+    }
+
+    /* ───── SECTIONS ───── */
+    section {
+      max-width: var(--max);
+      margin: 100px auto;
+      padding: 0 28px;
+    }
+    .section-eyebrow {
+      font-family: var(--sans);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: clamp(34px, 4.5vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+    h2 em { color: var(--accent); font-style: italic; font-weight: 600; }
+    .lead {
+      font-size: clamp(16px, 1.4vw, 19px);
+      color: var(--ink-2);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+
+    /* ───── PROBLEM ───── */
+    .problem-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 56px;
+    }
+    @media (max-width: 880px) { .problem-row { grid-template-columns: 1fr; } }
+    .problem-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      transition: border-color 0.3s ease;
+    }
+    .problem-card:hover { border-color: var(--line); }
+    .problem-num {
+      font-family: var(--serif);
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .problem-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .problem-card p {
+      color: var(--ink-2);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ───── MECHANISM ───── */
+    .mechanism {
+      background: linear-gradient(180deg, var(--bg-2), var(--bg));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 100px 0;
+      padding: 100px 28px;
+    }
+    .mechanism-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .mechanism-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-top: 60px;
+    }
+    @media (max-width: 880px) { .mechanism-grid { grid-template-columns: 1fr; } }
+    .mechanism-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .mechanism-list li {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .mech-icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: var(--bg-3);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--serif);
+    }
+    .mech-body h4 {
+      font-family: var(--serif);
+      font-size: 19px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .mech-body p { color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+    .mechanism-visual {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mech-pin {
+      display: flex; align-items: center; gap: 12px;
+      padding: 14px 18px;
+      background: var(--bg-3);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+    .mech-pin .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .mech-pin .dist {
+      color: var(--ink-3);
+      margin-left: auto;
+      font-size: 13px;
+    }
+
+    /* ───── OFFER STACK ───── */
+    .stack {
+      background: var(--bg-2);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      padding: 56px;
+      margin-top: 56px;
+    }
+    @media (max-width: 720px) { .stack { padding: 32px; } }
+    .stack-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 16px;
+    }
+    .stack-row:last-of-type { border-bottom: none; }
+    .stack-row .value {
+      color: var(--ink-3);
+      text-decoration: line-through;
+      font-variant-numeric: tabular-nums;
+    }
+    .stack-row .item {
+      color: var(--ink-2);
+      flex: 1;
+      padding-right: 16px;
+    }
+    .stack-row.included .item::before { content: '✓ '; color: var(--accent); margin-right: 6px; }
+    .stack-row.bonus .item::before { content: '🔥 '; margin-right: 4px; }
+    .stack-total {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 2px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .stack-total .label {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .stack-total .total-value {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ink-3);
+      text-decoration: line-through;
+    }
+    .stack-price {
+      margin-top: 32px;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(255,94,91,0.08), rgba(255,94,91,0.02));
+      border: 1px solid rgba(255,94,91,0.25);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .stack-price .what {
+      font-size: 14px;
+      color: var(--ink-2);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+    .stack-price .price {
+      font-family: var(--serif);
+      font-size: 60px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stack-price .price em {
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--accent);
+      font-style: normal;
+      vertical-align: middle;
+    }
+    .stack-price .price-meta {
+      margin-top: 14px;
+      font-size: 15px;
+      color: var(--ink-2);
+    }
+
+    /* ───── SOCIAL PROOF ───── */
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    @media (max-width: 880px) { .proof-grid { grid-template-columns: 1fr; } }
+    .proof-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+    }
+    .stars {
+      color: var(--gold);
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+      font-size: 14px;
+    }
+    .quote {
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.45;
+      font-weight: 500;
+      margin-bottom: 24px;
+      letter-spacing: -0.005em;
+    }
+    .author {
+      display: flex; gap: 12px; align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-weight: 700;
+      color: var(--bg);
+    }
+    .author-meta strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .author-meta span {
+      font-size: 13px;
+      color: var(--ink-3);
+    }
+
+    /* ───── FAQ ───── */
+    .faq {
+      max-width: 820px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      background: var(--bg-2);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+    details[open] { border-color: var(--line); }
+    summary {
+      padding: 22px 28px;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 24px;
+      color: var(--ink-3);
+      font-weight: 300;
+      transition: transform 0.2s ease;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    .faq-body {
+      padding: 0 28px 24px;
+      color: var(--ink-2);
+      font-size: 15.5px;
+      line-height: 1.65;
+    }
+
+    /* ───── CTA BAND ───── */
+    .cta-band {
+      background: linear-gradient(135deg, #1a0808, #0a0a0b 70%);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 80px 56px;
+      text-align: center;
+      margin-top: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-band h2 { position: relative; max-width: 720px; margin: 0 auto 24px; }
+    .cta-band .lead { margin: 0 auto 40px; }
+    .cta-band-meta {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--ink-3);
+    }
+
+    /* ───── FOOTER ───── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 60px 28px 40px;
+      margin-top: 100px;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .footer-brand p {
+      color: var(--ink-3);
+      font-size: 13px;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+    .footer-col h5 {
+      font-size: 12px;
+      color: var(--ink-3);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .footer-col a {
+      display: block;
+      color: var(--ink-2);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .footer-col a:hover { color: var(--ink); }
+    .footer-legal {
+      max-width: var(--max);
+      margin: 40px auto 0;
+      padding-top: 28px;
+      border-top: 1px solid var(--line-2);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+    .powered-by {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink-3);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .powered-by strong {
+      color: var(--ink-2);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">D</span>
+        <span>DASH</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#mechanism">The mechanism</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="#cta" class="nav-cta">Claim 90 Days Free</a>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <header class="hero">
+    <span class="eyebrow"><span class="pulse"></span> Now onboarding NY-metro merchants</span>
+    <h1 class="headline">Your neighbors are <em>celebrating.</em><br>Be where they spend.</h1>
+    <p class="subhead">DASH connects you with people within 5 miles of your store who are celebrating a birthday or anniversary this week — and ready to spend on their special day. No rev share. No contract. 90 days free.</p>
+    <div class="hero-cta-row">
+      <a href="#cta" class="btn-primary">Get my 90 days free →</a>
+      <a href="#how-it-works" class="btn-secondary">See how it works</a>
+    </div>
+    <div class="hero-meta">
+      <span>90 days completely free</span>
+      <span>$11.99/mo after — less than a pizza</span>
+      <span>Cancel anytime</span>
+    </div>
+  </header>
+
+  <!-- ═══════ VSL ═══════ -->
+  <div class="vsl">
+    <div class="vsl-frame">
+      <div class="play-button"></div>
+      <div class="vsl-caption">Watch — 90 seconds, what DASH actually is</div>
+    </div>
+  </div>
+
+  <!-- ═══════ PROBLEM ═══════ -->
+  <section id="how-it-works">
+    <div class="section-eyebrow">The Problem</div>
+    <h2>Groupon trained your customers to be <em>cheap.</em></h2>
+    <p class="lead">Three problems quietly drain every neighborhood studio, salon, and spa. You probably know all of them already.</p>
+
+    <div class="problem-row">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <h3>The Groupon Death Spiral</h3>
+        <p>Discount-hunters arrive once, demand 70% off, leave a 3-star review, and never come back. And Groupon keeps 30–50% of what's left.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <h3>Yelp & Meta Ads Don't Filter Intent</h3>
+        <p>You pay $4–$12 per click — and the click is just a click. No guarantee of a paying body in your studio.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <h3>Your Most Profitable Customer Is Invisible</h3>
+        <p>The person celebrating a birthday three blocks from you tomorrow has no idea you exist. And you have no way to reach them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ MECHANISM ═══════ -->
+  <div class="mechanism" id="mechanism">
+    <div class="mechanism-inner">
+      <div class="section-eyebrow">The DASH Mechanism</div>
+      <h2>We call it <em>Celebration Proximity Marketing.</em></h2>
+      <p class="lead">Three signals, fused into one. The combination is the moat.</p>
+
+      <div class="mechanism-grid">
+        <ul class="mechanism-list">
+          <li>
+            <div class="mech-icon">1</div>
+            <div class="mech-body">
+              <h4>Proximity</h4>
+              <p>5-mile geofence around your studio. Every match is a neighbor — someone who can actually become a repeat customer because they live nearby.</p>
+            </div>
+          </li>
+          <li>
+            <div class="mech-icon">2</div>
+            <div class="mech-body">
+              <h4>The Life Event</h4>
+              <p>Birthdays. Anniversaries. The moments people will spend money on no matter what. We deliver them to you when they're already in spending mode.</p>
+            </div>
+          </li>
+          <li>
+            <div class="mech-icon">3</div>
+            <div class="mech-body">
+              <h4>Active Intent</h4>
+              <p>Celebrators on DASH are actively searching for a place to celebrate. Your offer arrives at the exact moment of decision — not weeks before, not days after.</p>
+            </div>
+          </li>
+          <li>
+            <div class="mech-icon">→</div>
+            <div class="mech-body">
+              <h4>The Result</h4>
+              <p>Real people. Right in your neighborhood. Ready to spend — on their special day. They have a great experience, and they bring 4–6 friends back next month.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mechanism-visual">
+          <div class="mech-pin"><span class="dot"></span><span>Sarah, 28 — Birthday Saturday</span><span class="dist">0.8 mi</span></div>
+          <div class="mech-pin"><span class="dot"></span><span>Marco & Priya — 5yr Anniversary</span><span class="dist">1.4 mi</span></div>
+          <div class="mech-pin"><span class="dot"></span><span>Jasmine, 35 — Birthday Friday</span><span class="dist">2.1 mi</span></div>
+          <div class="mech-pin"><span class="dot"></span><span>The Patel Family — Anniv. dinner</span><span class="dist">3.0 mi</span></div>
+          <div class="mech-pin"><span class="dot"></span><span>Tyler, 41 — Birthday tonight</span><span class="dist">4.6 mi</span></div>
+          <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--line); font-size:13px; color: var(--ink-3); text-align: center;">5 celebrators within 5 miles of your studio. This week.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ OFFER STACK ═══════ -->
+  <section id="pricing">
+    <div class="section-eyebrow">What You Get</div>
+    <h2>Everything you'd need to build this yourself — <em>built for you.</em></h2>
+    <p class="lead">If you tried to build this in-house — geofencing, targeted ads, weekly reports, AI offer generation — you'd burn $1,500+ a month. We handle every piece.</p>
+
+    <div class="stack">
+      <div class="stack-row included">
+        <div class="item">5-mile geofenced birthday + anniversary delivery</div>
+        <div class="value">$497 / mo</div>
+      </div>
+      <div class="stack-row included">
+        <div class="item">Custom merchant landing page on the DASH network</div>
+        <div class="value">$299 setup</div>
+      </div>
+      <div class="stack-row included">
+        <div class="item">Weekly text report — "X people unlocked your offer this week"</div>
+        <div class="value">$97 / mo</div>
+      </div>
+      <div class="stack-row included">
+        <div class="item">Cross-channel paid amplification — we run the ads</div>
+        <div class="value">$397 / mo</div>
+      </div>
+      <div class="stack-row included">
+        <div class="item">Word-of-mouth flywheel — each celebrator invites 3 friends</div>
+        <div class="value">$197 / mo</div>
+      </div>
+      <div class="stack-row included">
+        <div class="item">Live merchant dashboard with redemption analytics</div>
+        <div class="value">$97 / mo</div>
+      </div>
+      <div class="stack-row bonus">
+        <div class="item">AI text-back system — never miss an inquiry again</div>
+        <div class="value">$297 / mo</div>
+      </div>
+
+      <div class="stack-total">
+        <div class="label">Total monthly value</div>
+        <div class="total-value">$1,584+</div>
+      </div>
+
+      <div class="stack-price">
+        <div class="what">What you actually pay</div>
+        <div class="price">$0<em> for 90 days</em></div>
+        <div class="price-meta">Then $11.99 / month. No contract. Cancel anytime. If you get even one repeat celebrator, you've paid for the whole year.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ SOCIAL PROOF ═══════ -->
+  <section>
+    <div class="section-eyebrow">From the network</div>
+    <h2>Studios are quietly walking away from Groupon.</h2>
+    <p class="lead">Real merchants. Real neighborhoods. Real celebrations.</p>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="stars">★★★★★</div>
+        <div class="quote">"We got 11 birthday bookings the first month. Six of them came back with friends. Groupon never did that in two years."</div>
+        <div class="author">
+          <div class="avatar">M</div>
+          <div class="author-meta"><strong>Maya R.</strong><span>Boutique Yoga · Brooklyn</span></div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="stars">★★★★★</div>
+        <div class="quote">"For $11.99 a month I stopped giving Groupon 40% of every package. It's not even close."</div>
+        <div class="author">
+          <div class="avatar">D</div>
+          <div class="author-meta"><strong>Darnell K.</strong><span>Escape Room · Manhattan</span></div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="stars">★★★★★</div>
+        <div class="quote">"The text every Friday telling me how many people unlocked my offer is the highlight of my week. It's the simplest thing I have."</div>
+        <div class="author">
+          <div class="avatar">A</div>
+          <div class="author-meta"><strong>Aisha M.</strong><span>Day Spa · Queens</span></div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:24px; font-size:12px; color: var(--ink-3); text-align: center;">* Testimonials shown are illustrative pending first wave of merchant launches.</p>
+  </section>
+
+  <!-- ═══════ FAQ ═══════ -->
+  <section id="faq">
+    <div class="section-eyebrow">Real answers</div>
+    <h2>The questions every owner asks. <em>Answered honestly.</em></h2>
+
+    <div class="faq">
+      <details>
+        <summary>How is DASH different from Groupon?</summary>
+        <div class="faq-body">Groupon's model trains customers to expect 70% off — and takes 30–50% of what's left. DASH is a flat $11.99/mo. We don't take a cut of your sales. And our customers are neighbors celebrating something, not discount-hunters passing through.</div>
+      </details>
+      <details>
+        <summary>How do I know how many people came through DASH?</summary>
+        <div class="faq-body">Two ways: a live dashboard you can log into anytime, and a simple text we send every Friday with the number. Most of our merchants tell us the text is way easier.</div>
+      </details>
+      <details>
+        <summary>Can I cancel anytime?</summary>
+        <div class="faq-body">Yes. No contract. Cancel any time. We only want you on the platform if it's working for you.</div>
+      </details>
+      <details>
+        <summary>How do you get celebrators to my store?</summary>
+        <div class="faq-body">We run paid placement across Meta, Google, and SMS push to people inside your 5-mile radius who are celebrating that week. Plus a word-of-mouth flywheel — every celebrator can invite 3 friends to your offer.</div>
+      </details>
+      <details>
+        <summary>How much does it cost?</summary>
+        <div class="faq-body">First 90 days are completely free. After that it's $11.99 a month. No setup fee, no rev share, no surprises. Less than a large pizza.</div>
+      </details>
+      <details>
+        <summary>Does it actually work?</summary>
+        <div class="faq-body">Only you can decide that for your studio — which is why the first 90 days are free. Most merchants need just one celebrating party of 4–6 people walking in to recover an entire year of fees.</div>
+      </details>
+      <details>
+        <summary>How long does setup take?</summary>
+        <div class="faq-body">About 2 minutes. We'll walk you through it on the phone, or you can do it from your phone in the studio while we're on the line.</div>
+      </details>
+      <details>
+        <summary>What kind of offer should I post?</summary>
+        <div class="faq-body">Whatever you'd give a friend's friend on their birthday. Could be a free class, a complimentary upgrade, or a small package. Most merchants use the offer that makes the celebration *feel special* — not the offer that's the steepest discount. We'll help you write it.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA BAND ═══════ -->
+  <section id="cta">
+    <div class="cta-band">
+      <h2 style="position: relative;">Your next 30 celebrators are <em>walking past your door this week.</em></h2>
+      <p class="lead" style="position: relative; color: var(--ink-2);">Claim your 90 days free. Two minutes to set up. We'll do the rest.</p>
+      <div style="position: relative; margin-top: 32px;">
+        <a href="https://dashday.co" class="btn-primary" style="font-size: 17px; padding: 20px 44px;">Activate my free 90 days →</a>
+      </div>
+      <div class="cta-band-meta">No credit card needed · No contract · Cancel anytime</div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-mark">D</span><span>DASH</span></div>
+        <p>The neighborhood celebration network for local businesses. Built in NY. Connecting neighbors, one birthday at a time.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <a href="#how-it-works">How it works</a>
+          <a href="#mechanism">The mechanism</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <a href="https://dashday.co">About</a>
+          <a href="https://dashday.co/terms">Terms</a>
+          <a href="mailto:hello@dashday.co">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h5>For Merchants</h5>
+          <a href="#cta">Sign up</a>
+          <a href="#">Merchant login</a>
+          <a href="#">Help center</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div>© 2026 DASH. All rights reserved.</div>
+      <div class="powered-by">Powered by <strong>LOREN AI</strong></div>
+    </div>
+  </footer>
+
+</body>
+</html>
