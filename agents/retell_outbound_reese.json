@@ -1,0 +1,73 @@
+{
+  "agent_name": "DASH_Outbound_Reese_v1",
+  "description": "DASH outbound cold-call agent — runs NEPQ v2 script against Groupon merchants in NY metro",
+  "voice_provider": "11labs",
+  "voice_id": "EXAVITQu4vr4xnSDxMaL",
+  "voice_name": "Bella",
+  "voice_temperature": 0.85,
+  "voice_speed": 0.95,
+  "responsiveness": 0.6,
+  "interruption_sensitivity": 0.4,
+  "enable_backchannel": true,
+  "backchannel_frequency": 0.3,
+  "backchannel_words": ["mm-hmm", "got it", "yeah", "hmm"],
+  "ambient_sound": "office",
+  "ambient_sound_volume": 0.05,
+  "language": "en-US",
+  "llm": {
+    "provider": "anthropic",
+    "model": "claude-sonnet-4-6",
+    "temperature": 0.7
+  },
+  "system_prompt_ref": "prompts/nepq_voice_agent.md",
+  "boosted_keywords": [
+    "DASH", "Groupon", "birthday", "anniversary",
+    "yoga", "pilates", "spa", "escape room",
+    "celebrator", "neighborhood", "studio"
+  ],
+  "begin_message": "Hey — this is Reese from DASH. Quick reason for the call — am I catching the owner?",
+  "post_call_analysis_data": [
+    {
+      "type": "string",
+      "name": "stage_reached",
+      "description": "Highest NEPQ stage reached (1-7)"
+    },
+    {
+      "type": "string",
+      "name": "outcome",
+      "description": "booked / declined / callback / vm / disconnect"
+    },
+    {
+      "type": "string",
+      "name": "top_objection",
+      "description": "Primary objection raised by prospect, if any"
+    },
+    {
+      "type": "string",
+      "name": "pain_quote",
+      "description": "Verbatim quote of prospect's strongest pain statement"
+    },
+    {
+      "type": "number",
+      "name": "sentiment_score",
+      "description": "Overall sentiment, -1 to 1"
+    },
+    {
+      "type": "boolean",
+      "name": "is_decision_maker",
+      "description": "True if prospect confirmed they make the decision"
+    },
+    {
+      "type": "string",
+      "name": "next_action",
+      "description": "Recommended next step (e.g. 'book follow-up Tue 2pm', 'add to nurture')"
+    }
+  ],
+  "webhook_url": "https://services.leadconnectorhq.com/hooks/dash-call-outcome",
+  "max_call_duration_seconds": 360,
+  "end_call_phrases": [
+    "have a great day",
+    "talk soon",
+    "thanks for your time"
+  ]
+}
